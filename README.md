@@ -1,59 +1,60 @@
-# OBS Plugin Template
+OBS PNG Avatar Plugin 🎙️✨
+A native OBS Studio plugin that turns your microphone into an animated, audio-reactive PNG avatar.
 
-## Introduction
+Say goodbye to capturing external windows from Discord Streamkit or Veadotube! This plugin runs natively inside OBS, giving you a lightweight, zero-latency, all-in-one PNGTuber solution directly on your canvas.
 
-The plugin template is meant to be used as a starting point for OBS Studio plugin development. It includes:
+✨ Features
+3-State Audio Reactivity: Automatically switches between Default (Silent), Talking, and Shouting images based on your microphone volume.
 
-* Boilerplate plugin source code
-* A CMake project file
-* GitHub Actions workflows and repository actions
+Customizable Decibel Thresholds: Fine-tune exactly how loud you need to be to trigger the "Talking" and "Shouting" states.
 
-## Supported Build Environments
+Built-in Animations: Bring your avatar to life with GPU-accelerated animations (Bounce, Scale, Wobble).
 
-| Platform  | Tool   |
-|-----------|--------|
-| Windows   | Visual Studio 17 2022 |
-| macOS     | XCode 16.0 |
-| Windows, macOS  | CMake 3.30.5 |
-| Ubuntu 24.04 | CMake 3.28.3 |
-| Ubuntu 24.04 | `ninja-build` |
-| Ubuntu 24.04 | `pkg-config`
-| Ubuntu 24.04 | `build-essential` |
+Independent Animation States: Set different animations for different volume levels (e.g., a gentle bounce when talking, and a chaotic wobble when shouting!).
 
-## Quick Start
+Zero Window Capture: Renders natively as an OBS Video Source, meaning no background apps to run, no green screens to key out, and virtually zero CPU overhead.
 
-An absolute bare-bones [Quick Start Guide](https://github.com/obsproject/obs-plugintemplate/wiki/Quick-Start-Guide) is available in the wiki.
+📥 Installation
+(Note: Update this section once you publish your first Release)
 
-## Documentation
+Go to the Releases page and download the latest .zip or installer for your operating system.
 
-All documentation can be found in the [Plugin Template Wiki](https://github.com/obsproject/obs-plugintemplate/wiki).
+Extract the contents directly into your main OBS Studio installation folder (usually C:\Program Files\obs-studio on Windows).
 
-Suggested reading to get up and running:
+Restart OBS Studio.
 
-* [Getting started](https://github.com/obsproject/obs-plugintemplate/wiki/Getting-Started)
-* [Build system requirements](https://github.com/obsproject/obs-plugintemplate/wiki/Build-System-Requirements)
-* [Build system options](https://github.com/obsproject/obs-plugintemplate/wiki/CMake-Build-System-Options)
+🛠️ How to Use
+Setting up your avatar takes less than a minute:
 
-## GitHub Actions & CI
+Add the Source: In your OBS Scene, click the + button under Sources and select PNG Avatar (Audio Reactive).
 
-Default GitHub Actions workflows are available for the following repository actions:
+Link Your Mic: In the properties window, click the Microphone Source dropdown and select your active audio input (e.g., Mic/Aux).
 
-* `push`: Run for commits or tags pushed to `master` or `main` branches.
-* `pr-pull`: Run when a Pull Request has been pushed or synchronized.
-* `dispatch`: Run when triggered by the workflow dispatch in GitHub's user interface.
-* `build-project`: Builds the actual project and is triggered by other workflows.
-* `check-format`: Checks CMake and plugin source code formatting and is triggered by other workflows.
+Load Your Images: Browse and select your three character states:
 
-The workflows make use of GitHub repository actions (contained in `.github/actions`) and build scripts (contained in `.github/scripts`) which are not needed for local development, but might need to be adjusted if additional/different steps are required to build the plugin.
+Default Image: When you are silent.
 
-### Retrieving build artifacts
+Talking Image: When you are speaking normally.
 
-Successful builds on GitHub Actions will produce build artifacts that can be downloaded for testing. These artifacts are commonly simple archives and will not contain package installers or installation programs.
+Shouting Image: When you are loud/laughing.
 
-### Building a Release
+Set Your Thresholds:
 
-To create a release, an appropriately named tag needs to be pushed to the `main`/`master` branch using semantic versioning (e.g., `12.3.4`, `23.4.5-beta2`). A draft release will be created on the associated repository with generated installer packages or installation programs attached as release artifacts.
+Speak normally into your mic and lower the Talking Threshold (dB) slider until your talking image appears reliably (usually around -40 dB to -30 dB).
 
-## Signing and Notarizing on macOS
+Make a loud noise and adjust the Shouting Threshold (dB) so it only triggers when you are genuinely loud (usually around -15 dB to -5 dB).
 
-Basic concepts of codesigning and notarization on macOS are explained in the correspodning [Wiki article](https://github.com/obsproject/obs-plugintemplate/wiki/Codesigning-On-macOS) which has a specific section for the [GitHub Actions setup](https://github.com/obsproject/obs-plugintemplate/wiki/Codesigning-On-macOS#setting-up-code-signing-for-github-actions).
+Animate It! Scroll down to the Animation settings to add a Bounce, Scale, or Wobble effect. You can adjust the intensity of the movement and the global animation speed to fit your character's vibe.
+
+💻 Building from Source
+This plugin was built using the official obs-plugintemplate.
+
+To compile this yourself:
+
+Clone this repository.
+
+Make sure you have CMake and your platform's build tools installed (Visual Studio on Windows, Xcode on macOS, GCC/Clang on Linux).
+
+Generate the build files using CMake.
+
+Compile the project. The resulting .dll, .so, or .dylib will be placed in your build directory, ready to be copied to your OBS plugins folder.
