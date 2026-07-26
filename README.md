@@ -18,7 +18,7 @@ Say goodbye to capturing external windows from Discord Streamkit or Veadotube! T
 
 *(Note: Update this section once you publish your first Release)*
 
-1. Go to the [Releases page](../../releases) and download the latest `.zip` or installer for your operating system.
+1. Go to the [Releases page](../../releases) and download the latest `.zip`.
 2. Extract the contents directly into your main OBS Studio installation folder (usually `C:\Program Files\obs-studio` on Windows).
 3. Restart OBS Studio.
 
